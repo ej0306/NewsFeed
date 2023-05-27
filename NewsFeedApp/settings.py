@@ -57,11 +57,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'NewsFeedApp.urls'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
 
-        'DIRS': [BASE_DIR / 'user/templates/user'],
+        'DIRS': [BASE_DIR / 'templates'],
 
         'APP_DIRS': True,
         'OPTIONS': {
@@ -123,16 +124,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(NEWSFEED_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-
-STATICFILES_DIRS = (
-    os.path.join(NEWSFEED_DIR, 'user/static/css'),
-)
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_ROOT = os.path.join(NEWSFEED_DIR, 'staticfiles')
+
+STATICFILES_DIRS = (
+    os.path.join(NEWSFEED_DIR, 'user/static/css'),
+)
