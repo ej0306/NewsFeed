@@ -81,7 +81,7 @@ def home(request):
         'all_news': all_news,
     }
 
-    return render(request, 'home.html', context)
+    return render(request, 'templates/home.html', context)
 
 
 def category(request, category):
@@ -115,4 +115,4 @@ def category(request, category):
         'category': category
     }
 
-    return render(request, 'category.html', context)
+    return render(request, 'templates/category.html', context)
