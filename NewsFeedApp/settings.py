@@ -26,13 +26,13 @@ SECRET_KEY = 'django-insecure-_m5qqrmw*412t^s+03blp+szxor=i+@ur%5co8vhmssn#k&l3w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.144.214.122', '127.0.0.1']
+ALLOWED_HOSTS = ['54.144.214.122', '127.0.0.1', 'newsfeed.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    #'user',
+    # 'user',
     'user.apps.UserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -60,7 +60,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
 
-        'DIRS': [BASE_DIR / 'templates'], 
+        'DIRS': [BASE_DIR / 'templates'],
 
         'APP_DIRS': True,
         'OPTIONS': {
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'NewsFeedApp.wsgi.application'
 
 DATABASES = {
     'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
@@ -129,5 +129,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import os
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'user/static'),
+)

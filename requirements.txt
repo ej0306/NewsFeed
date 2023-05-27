@@ -8,3 +8,4 @@ pyowm==3.3.0
 django-crispy-forms
 pytest
 coverage
+whitenoise==5.3.0
