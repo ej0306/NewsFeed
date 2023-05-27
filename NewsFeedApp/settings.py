@@ -61,7 +61,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
 
-        'DIRS': [BASE_DIR / 'user/templates'],
+        'DIRS': [BASE_DIR / 'user/templates/user'],
 
         'APP_DIRS': True,
         'OPTIONS': {
@@ -128,7 +128,7 @@ STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = (
-    os.path.join(NEWSFEED_DIR, 'user/static/'),
+    os.path.join(NEWSFEED_DIR, 'user/static/css'),
 )
 
 
