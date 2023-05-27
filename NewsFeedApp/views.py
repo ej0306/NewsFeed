@@ -6,19 +6,19 @@ from newsfeed.reporter.reporter import Reporter
 from newsfeed.reporter.weatherman import Weatherman
 from test1.models import user_preferences
 
+
 def home(request):
     news_api_key = '2b00a2eb951c41d8b52d443466b62903'
     weather_api_key = '33acb338cf186037e1f0801d8945e21b'
-    
 
     try:
-        a = user_preferences.objects.get(user = request.user)
+        a = user_preferences.objects.get(user=request.user)
         weather_location = a.location
     except:
         weather_location = 'New York'
 
     reporter = Reporter(news_api_key)
-    weather = Weatherman(weather_api_key, location = weather_location)
+    weather = Weatherman(weather_api_key, location=weather_location)
 
     topnews = reporter.get_top_headlines()
     current = weather.get_current_weather()
@@ -52,7 +52,8 @@ def home(request):
         weekly_status.append(data['status'])
         weekly_icon.append(data['icon_url'])
 
-    weekly_data = zip(weekly_date, weekly_hi, weekly_lo, weekly_status, weekly_icon)
+    weekly_data = zip(weekly_date, weekly_hi, weekly_lo,
+                      weekly_status, weekly_icon)
 
     latest = topnews['articles']
     title = []
@@ -79,15 +80,16 @@ def home(request):
         'weekly_data': weekly_data,
         'all_news': all_news,
     }
-    
-    return render(request, 'home.html', context)
+
+    return render(request, 'user/templates/home.html', context)
+
 
 def category(request, category):
     api_key = '6302cfd58afa4d2790c08edda25f837e'
     reporter = Reporter(api_key)
     topnews = reporter.get_top_headlines(category)
 
-    print (topnews)
+    print(topnews)
     latest = topnews['articles']
     title = []
     desc = []
@@ -112,12 +114,5 @@ def category(request, category):
         'all_news': all_news,
         'category': category
     }
-    
-    return render(request, 'category.html', context)
- 
 
-    
-
-
-
-
+    return render(request, 'user/templatescategory.html', context)
