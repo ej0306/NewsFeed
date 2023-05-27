@@ -57,7 +57,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'NewsFeedApp.urls'
-TEMPLATE_DIR = os.path.join(NEWSFEED_DIR, "templates")
+TEMPLATE_DIR = os.path.join(NEWSFEED_DIR / "templates")
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -124,12 +124,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(NEWSFEED_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(NEWSFEED_DIR / 'staticfiles')
 STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = (
-    os.path.join(NEWSFEED_DIR, 'user/static/'),
+    os.path.join(NEWSFEED_DIR / 'user/static/'),
 )
 
 
