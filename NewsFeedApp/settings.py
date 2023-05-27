@@ -57,7 +57,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'NewsFeedApp.urls'
-TEMPLATE_DIR = os.path.join(NEWSFEED_DIR, "apps/templates")
+TEMPLATE_DIR = os.path.join(NEWSFEED_DIR, "templates")
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
